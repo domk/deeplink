@@ -8,11 +8,11 @@ Deeplink creates for you another directory hosting all your `$HOME`files as link
 
 ```shell
 $ cd $HOME
-$ deeplink . ./some_path/simulated_home
+
+$ deeplink -s . ./some_path/simulated_home
 ```
 
 The result of the command is that both `$HOME` and `$HOME/some_path/simulated_home` contain the same files and directories although the later contains only links to original ones and that `$HOME/some_path/simulated_home` does not contain a link to `./some_path/simulated_home`. In other words, `$HOME/some_path/simulated_home/some_path` exists but not `$HOME/some_path/simulated_home/some_path/simulated_home`.
-
 
 ## Development
 
