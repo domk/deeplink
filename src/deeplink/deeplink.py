@@ -144,8 +144,11 @@ def remove_front_dir(
     head_path: pathlib.Path, item: pathlib.Path
 ) -> pathlib.Path:
     """Given a head_path, remove this front path from item and return
-    the results. For instance, when head_path is 'a/b/c' and item is
-    'a/b/c/d/e', the function returns 'd/e'."""
+    the results.
+
+    >>> remove_front_dir(pathlib.Path('a/b/c'), pathlib.Path('a/b/c/d/e'))
+    PosixPath('d/e')
+    """
 
     head = list(head_path.parts)
     result = list(item.parts)
@@ -163,6 +166,11 @@ def relative_path(src: pathlib.Path, dest: pathlib.Path) -> pathlib.Path:
     """Given a `src` directory and a `dest` directory, returns the
     path to go from src to dest. If the dest path is absolute, returns
     the absolute path instead.
+
+    >>> relative_path(pathlib.Path('a/b/c/m'), pathlib.Path('a/b/c/d/e'))
+    PosixPath('../d/e')
+    >>> relative_path(pathlib.Path('/a/b/c/m'), pathlib.Path('/a/b/c/d/e'))
+    PosixPath('/a/b/c/d/e')
 
     """
     slist = list(src.absolute().parts)
